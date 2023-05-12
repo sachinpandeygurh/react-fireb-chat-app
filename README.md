@@ -1,34 +1,51 @@
-# react-fireb-chat-app
+## React Fireb Chat App
 
-This is a sample chat application built with React and Firebase.
+This is a simple chat application built using React, Firebase and Chat Engine.
 
-## Dependencies
+### Installation
 
-- @ant-design/icons
-- @testing-library/jest-dom
-- @testing-library/react
-- @testing-library/user-event
-- axios
-- firebase
-- react
-- react-chat-engine
-- react-dom
-- react-router-dom
-- react-scripts
-- web-vitals
+To install the necessary dependencies, run the following command:
 
-## Getting Started
+```
+npm install
+```
 
-To get started with this project, follow these steps:
+### Running the app
 
-1. Clone the repository.
-2. Install the dependencies using `npm install`.
-3. Run the application using `npm start`.
+To start the app, run the following command:
 
-## Contributing
+```
+npm start
+```
 
-If you find any issues with the project or want to contribute to it, feel free to create a pull request.
+### Dependencies
 
-## Author
+This project uses the following dependencies:
 
-sachin pandey
+- `@ant-design/icons`: for icon library
+- `axios`: for HTTP requests
+- `bootstrap`: for styling
+- `firebase`: for authentication and database
+- `react`: for building user interfaces
+- `react-bootstrap`: for styling
+- `react-chat-engine`: for chat engine functionality
+- `react-dom`: for rendering
+- `react-router-dom`: for routing
+- `react-scripts`: for running and building the app
+- `web-vitals`: for performance metrics
+
+### Usage
+
+The app has two main components: `Login` and `Chats`.
+
+The `Login` component handles user authentication and login.
+
+The `Chats` component displays the chat room and messages.
+
+### Screenshorts
+![Screenshot](./src/ss/landingpage.png)
+![Screenshot](./src/ss/Untitled%20design.png)
+
+### Visit the page
+To see the live project, click [here](#).
+
