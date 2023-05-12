@@ -6,12 +6,12 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAhP0opk7opcg1Pvkrf_onUiJtN-1bfkiM",
-    authDomain: "chat-app-a132d.firebaseapp.com",
-    projectId: "chat-app-a132d",
-    storageBucket: "chat-app-a132d.appspot.com",
-    messagingSenderId: "88237167318",
-    appId: "1:88237167318:web:ee853ae79dcdf362e5af77"
+    apiKey: "REACT_APP_CHAT_ENGINE_FIREBASE_apiKey",
+    authDomain: "REACT_APP_CHAT_ENGINE_FIREBASE_authDomain",
+    projectId: "REACT_APP_CHAT_ENGINE_FIREBASE_projectId",
+    storageBucket: "REACT_APP_CHAT_ENGINE_FIREBASE_storageBucket",
+    messagingSenderId: "REACT_APP_CHAT_ENGINE_FIREBASE_messagingSenderId",
+    appId: "REACT_APP_CHAT_ENGINE_FIREBASE_appId"
 };
 
 firebase.initializeApp(firebaseConfig);

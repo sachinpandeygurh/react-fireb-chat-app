@@ -1,24 +1,89 @@
-import React from 'react'
+import React, {useRef, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ChatEngine } from 'react-chat-engine';
 import { auth } from './firebase';
+import { useAuth } from '../context/AuthContext';
+import axios from 'axios';
 
 function Chats() {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const [loading, setLoading] = useState(true);
+  console.log(user)
+
+  const handleLogout = async () => {
+    await auth.signOut();
+    navigate("/")
+  };
+
+  const getFile = async (url) => {
+    const response = await fetch(url);
+    const data = await response.blob();
+
+    return new File([data], "userPhoto.jpg", { type: "image/jpeg"});
+  };
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/');
+      return;
+    }
+
+    axios.get('https://api.chatengine.io/users/me', {
+        headers: {
+           "project-id" : `78127d8c-84f9-4d88-956b-cc80fac5246c`,
+           "user-name" : user.email,
+           "user-secret" : user.uid,
+        },
+      })
+      .then(() => {
+        setLoading(false);
+
+      })
+      .catch(() => {
+        let formdata = new FormData();
+        formdata.append('email', user.email);
+        formdata.append('username', user.displayName);
+        formdata.append('secret', user.uid);
+
+        getFile(user.photoURL).then((avatar) => {
+          formdata.append('avatar', avatar, avatar.name);
+
+          axios.post(
+              'https://api.chatengine.io/users/',
+              formdata,
+              {
+                headers: {
+                  "private-key" : 'REACT_APP_CHAT_ENGINE_KEY',
+                },
+              }
+            )
+            .then(() => setLoading(false))
+            .catch((error) => console.log(error));
+        });
+      });
+  }, [user, navigate]);
+
+  if (!user || loading)
+   return 'loading...';
+
   return (
-   <div className="chats-page">
-    <div className="nav-bar">
-        <div className='logo-tab'>
-            React Firb Chat app
+    <div className="chats-page">
+      <div className="nav-bar">
+        <div className="logo-tab">React Firb Chat app</div>
+        <div onClick={handleLogout} className="logout-tab">
+          Logout
         </div>
-        <div className="logout-tab">Logout</div>
+      </div>
+      <ChatEngine
+        height="calc(100vh - 66px)"
+        projectID = "REACT_APP_CHAT_ENGINE_ID"
+
+        userName={user.email}
+        userSecret={user.uid}
+      />
     </div>
-    <ChatEngine 
-    height="calc(100vh-66px)"
-    projectID =""
- 
-    />
-   </div>
-  )
+  );
 }
 
-export default Chats ;
+export default Chats;

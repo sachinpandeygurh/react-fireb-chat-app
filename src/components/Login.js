@@ -11,17 +11,16 @@ const Login = () => (
                 Welcome to <span className="text-warning fw-bold">React Fireb Chat App</span>
             </h4>
             <div className="login-button google mx-5 mt-5"
-            // onClick={()=> auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider)}
             onClick={() => auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())}
 
            >
-                <GoogleOutlined className='text-success m-0 p-0 fs-1' /> Signin with google
+                <GoogleOutlined className='text-success m-0 p-0 fs-1' /> Signin with Google
             </div>
 
             <div className="login-button google m-5 mb-1"
             onClick={() => auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider())}
             >
-                <FacebookOutlined className='text-primary m-0 p-0 fs-1'  /> Signin with google
+                <FacebookOutlined className='text-primary m-0 p-0 fs-1'  /> Signin with Facebook
             </div>
 
         </div>
