@@ -46,6 +46,6 @@ The `Chats` component displays the chat room and messages.
 ![Screenshot](./src/ss/landingpage.png)
 ![Screenshot](./src/ss/Untitled%20design.png)
 
-## Visit the page
+### Visit the page
 To see the live project, click [here](#).
 
