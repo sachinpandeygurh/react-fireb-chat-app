@@ -43,8 +43,8 @@ The `Login` component handles user authentication and login.
 The `Chats` component displays the chat room and messages.
 
 ### Screenshorts
-![Screenshot](./src/ss/landingpage.png)
-![Screenshot](./src/ss/Untitled%20design.png)
+![Screenshot](https://sachinpandeygurh.github.io/react-fireb-chat-app/src/ss/landingpage.png)
+![Screenshot](https://sachinpandeygurh.github.io/react-fireb-chat-app/src/ss/Untitled%20design.png)
 
 ### Visit the page
 To see the live project, click [here](#).
